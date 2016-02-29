@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.tipcalculator.sukhjinder.tipcalculator.MainActivity"
+    tools:showIn="@layout/activity_main"
+    android:onClick="amountDueUp">
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Calculate"
+        android:id="@+id/CalcButton"
+        android:onClick="calculate"
+        android:layout_below="@+id/numOfPeople"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/Total"
+        android:backgroundTint="@android:color/holo_blue_dark"
+        android:layout_alignBottom="@+id/TotaltextView"
+        android:layout_alignRight="@+id/tip"
+        android:layout_alignEnd="@+id/tip"
+        android:layout_toRightOf="@+id/TotaltextView"
+        android:layout_toEndOf="@+id/TotaltextView" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Total"
+        android:id="@+id/TotaltextView"
+        android:textSize="22dp"
+        android:layout_below="@+id/tipTextView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="40dp"
+        android:textColor="#000000" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tip"
+        android:id="@+id/tipTextView"
+        android:textSize="22dp"
+        android:layout_marginTop="39dp"
+        android:layout_below="@+id/CalcButton"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textColor="#000000" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tip"
+        android:backgroundTint="@android:color/holo_blue_dark"
+        android:layout_alignBottom="@+id/tipTextView"
+        android:layout_toRightOf="@+id/TotaltextView"
+        android:layout_alignRight="@+id/totalPerPerson"
+        android:layout_alignEnd="@+id/totalPerPerson" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Total Per Person"
+        android:id="@+id/totalPerPersonTextView"
+        android:textSize="22dp"
+        android:layout_below="@+id/Total"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="35dp"
+        android:textColor="#000000" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/totalPerPerson"
+        android:layout_alignBottom="@+id/totalPerPersonTextView"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@+id/totalPerPersonTextView"
+        android:layout_toRightOf="@+id/totalPerPersonTextView"
+        android:backgroundTint="@android:color/holo_blue_dark"
+        />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        android:ems="10"
+        android:id="@+id/value"
+        android:backgroundTint="@android:color/holo_blue_dark"
+        android:layout_below="@+id/textView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_toLeftOf="@+id/amoutDueArrowDown"
+        android:layout_toStartOf="@+id/amoutDueArrowDown" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        android:ems="10"
+        android:id="@+id/tipPercentage"
+        android:layout_marginTop="35dp"
+        android:layout_below="@+id/value"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:backgroundTint="@android:color/holo_blue_dark"
+        android:layout_toStartOf="@+id/amoutDueArrowDown" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/numOfPeople"
+        android:layout_marginTop="35dp"
+        android:backgroundTint="@android:color/holo_blue_dark"
+        android:layout_below="@+id/tipPercentage"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_toStartOf="@+id/tipPercentageArrowUp"
+        android:layout_alignRight="@+id/tipPercentage"
+        android:layout_alignEnd="@+id/tipPercentage" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/amoutDueArrowDown"
+        android:src="@mipmap/arrow_down"
+        android:onClick="amountDueDown"
+        android:layout_toLeftOf="@+id/amoutDueArrowUp"
+        android:layout_toStartOf="@+id/amoutDueArrowUp"
+        android:layout_above="@+id/tipPercentage"
+        android:layout_alignTop="@+id/value" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tipPercentageArrowDown"
+        android:layout_alignTop="@+id/tipPercentage"
+        android:layout_toRightOf="@+id/tipPercentage"
+        android:src="@mipmap/arrow_down"
+        android:layout_above="@+id/numOfPeople"
+        android:layout_alignRight="@+id/amoutDueArrowDown"
+        android:layout_alignEnd="@+id/amoutDueArrowDown"
+        android:onClick="tipDown" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/numOfPeopleArrowDown"
+        android:src="@mipmap/arrow_down"
+        android:layout_toRightOf="@+id/numOfPeople"
+        android:layout_alignBottom="@+id/numOfPeople"
+        android:layout_toLeftOf="@+id/tipPercentageArrowUp"
+        android:layout_toStartOf="@+id/tipPercentageArrowUp"
+        android:layout_alignTop="@+id/numOfPeople"
+        android:onClick="numDown" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/amoutDueArrowUp"
+        android:src="@mipmap/arrow_up"
+        android:onClick="amountDueUp"
+        android:layout_alignRight="@+id/CalcButton"
+        android:layout_alignEnd="@+id/CalcButton"
+        android:layout_alignBottom="@+id/amoutDueArrowDown"
+        android:layout_alignTop="@+id/amoutDueArrowDown" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tipPercentageArrowUp"
+        android:src="@mipmap/arrow_up"
+        android:layout_alignBottom="@+id/tipPercentageArrowDown"
+        android:layout_toRightOf="@+id/tipPercentageArrowDown"
+        android:layout_toEndOf="@+id/tipPercentageArrowDown"
+        android:layout_alignTop="@+id/tipPercentageArrowDown"
+        android:onClick="tipUp" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/numOfPeopleArrowUp"
+        android:src="@mipmap/arrow_up"
+        android:layout_alignBottom="@+id/numOfPeopleArrowDown"
+        android:layout_toRightOf="@+id/numOfPeopleArrowDown"
+        android:layout_toEndOf="@+id/numOfPeopleArrowDown"
+        android:layout_alignTop="@+id/numOfPeopleArrowDown"
+        android:onClick="numUp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Amount Due"
+        android:id="@+id/textView"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textSize="20dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Tip Percentage"
+        android:id="@+id/textView2"
+        android:layout_above="@+id/tipPercentageArrowDown"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textSize="20dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Number Of People"
+        android:id="@+id/textView3"
+        android:layout_above="@+id/numOfPeopleArrowDown"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textSize="20dp" />
+
+</RelativeLayout>
