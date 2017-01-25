@@ -5,12 +5,11 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import java.text.DecimalFormat;
 
 
@@ -18,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
 
     double val = 0;
     double percent = 0;
-    double Tip = 0 ;
+    double Tip = 0;
     int numberOfPeople = 0;
     double totalVal = 0;
     double TotalPerPerson = 0;
@@ -55,12 +54,9 @@ public class MainActivity extends AppCompatActivity {
 
         hideKeyboard(this);
 
-        if(value.getText().toString().equals("") | percentage.getText().toString().equals("") | numOfPeople.getText().toString().equals("") )
-        {
-            Toast.makeText(getApplicationContext(),"Enter all Values", Toast.LENGTH_SHORT).show();
-        }
-
-        else{
+        if (value.getText().toString().equals("") | percentage.getText().toString().equals("") | numOfPeople.getText().toString().equals("")) {
+            Toast.makeText(getApplicationContext(), "Enter all Values", Toast.LENGTH_SHORT).show();
+        } else {
             val = Double.parseDouble(value.getText().toString());
             percent = Double.parseDouble(percentage.getText().toString());
             numberOfPeople = Integer.parseInt(numOfPeople.getText().toString());
@@ -74,28 +70,21 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public void amountDueUp(View view)
-    {
-        if(value.getText().toString().equals(""))
-        {
+    public void amountDueUp(View view) {
+        if (value.getText().toString().equals("")) {
             value.setText(String.valueOf(0.0));
-        }
-        else {
-        val = Double.parseDouble(value.getText().toString());
-        if(val>=0)
-            val++;
-        value.setText(String.valueOf(val));
+        } else {
+            val = Double.parseDouble(value.getText().toString());
+            if (val >= 0)
+                val++;
+            value.setText(String.valueOf(val));
         }
     }
 
-    public void amountDueDown(View view)
-    {
-        if(value.getText().toString().equals(""))
-        {
+    public void amountDueDown(View view) {
+        if (value.getText().toString().equals("")) {
             value.setText(String.valueOf(0.0));
-        }
-        else
-        {
+        } else {
             val = Double.parseDouble(value.getText().toString());
             if (val > 0)
                 val--;
@@ -103,12 +92,10 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void tipUp(View view)
-    {
-        if(percentage.getText().toString().equals("")){
+    public void tipUp(View view) {
+        if (percentage.getText().toString().equals("")) {
             percentage.setText(String.valueOf(0.0));
-        }
-        else {
+        } else {
             percent = Double.parseDouble(percentage.getText().toString());
             if (percent >= 0)
                 percent++;
@@ -116,12 +103,10 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void tipDown(View view)
-    {
-        if(percentage.getText().toString().equals("")){
+    public void tipDown(View view) {
+        if (percentage.getText().toString().equals("")) {
             percentage.setText(String.valueOf(0.0));
-        }
-        else {
+        } else {
             percent = Double.parseDouble(percentage.getText().toString());
             if (percent > 0)
                 percent--;
@@ -129,64 +114,32 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void numUp (View view)
-    {
-        if(numOfPeople.getText().toString().equals(""))
-        {
+    public void numUp(View view) {
+        if (numOfPeople.getText().toString().equals("")) {
             numOfPeople.setText(String.valueOf("1"));
         }
-        if(numberOfPeople>=0)
-        {
+        if (numberOfPeople >= 0) {
             numberOfPeople++;
         }
         numOfPeople.setText(String.valueOf(numberOfPeople));
     }
 
-    public void numDown(View view)
-    {
-        if(numOfPeople.getText().toString().equals(""))
-        {
+    public void numDown(View view) {
+        if (numOfPeople.getText().toString().equals("")) {
             numOfPeople.setText(String.valueOf("1"));
         }
-        if(numberOfPeople>1)
-        {
+        if (numberOfPeople > 1) {
             numberOfPeople--;
         }
         numOfPeople.setText(String.valueOf(numberOfPeople));
     }
 
-
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-
-    public static void hideKeyboard(Activity activity)
-    {
+    public static void hideKeyboard(Activity activity) {
         InputMethodManager inputMethodManager = (InputMethodManager) activity.getSystemService(Activity.INPUT_METHOD_SERVICE);
         inputMethodManager.hideSoftInputFromWindow(activity.getCurrentFocus().getWindowToken(), 0);
     }
 
-    double round(double d)
-    {
+    double round(double d) {
         DecimalFormat twoDForm = new DecimalFormat("#.##");
         return Double.valueOf(twoDForm.format(d));
     }
